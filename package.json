@@ -1,0 +1,33 @@
+{
+  "name": "resource-library-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js --fix ./",
+    "start": "node index.js",
+    "start-nodemon": "nodemon index.js",
+    "test": "DATABASE=resource_library_test API_PORT=3001 node index.js & DATABASE=resource_library_test API_PORT=3001 jest; kill -9 $(lsof -ti tcp:3001)"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "pg-promise": "^8.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.0",
+    "jest": "^22.4.3",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
+    "superagent": "^3.8.2",
+    "supertest": "^3.0.0"
+  }
+}
