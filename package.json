@@ -7,7 +7,7 @@
     "lint": "./node_modules/eslint/bin/eslint.js --fix ./",
     "start": "node index.js",
     "start-nodemon": "nodemon index.js",
-    "test": "DATABASE=resource_library_test API_PORT=3001 node index.js & DATABASE=resource_library_test API_PORT=3001 jest; kill -9 $(lsof -ti tcp:3001)"
+    "test": "DATABASE=resource_library_test API_PORT=3001 node index.js & DATABASE=resource_library_test API_PORT=3001 jest && kill -9 $(lsof -ti tcp:3001)"
   },
   "author": "",
   "license": "ISC",

@@ -2,7 +2,7 @@ const { selectAllBookmarks, db } = require('../../models');
 
 let response;
 
-describe('get all bookmarks', () => {
+xdescribe('get all bookmarks', () => {
   beforeAll(async () => {
     await db.any('DELETE FROM bookmark');
     response = await selectAllBookmarks().then(data => data);

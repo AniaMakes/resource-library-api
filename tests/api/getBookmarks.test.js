@@ -1,5 +1,6 @@
 const rp = require('request-promise');
 const { url, typeOf } = require('../helpers');
+const { db } = require('../../models');
 
 let response;
 
@@ -7,10 +8,15 @@ const testBookmark = {
   title: 'The great Test',
   description: 'The greatest test ever written',
   url: 'test.test.test',
+  tags: 'testing, programming, kittens',
 };
 
 describe('post a bookmark', () => {
   beforeAll(async () => {
+    await db.any('DELETE FROM bookmark');
+    await db.any('DELETE FROM bookmark_tag');
+    await db.any('DELETE FROM tag');
+
     const options = {
       uri: `${url}/bookmark`,
       resolveWithFullResponse: true,
@@ -19,6 +25,10 @@ describe('post a bookmark', () => {
       json: true,
     };
     response = await rp(options).then(data => data.toJSON());
+  });
+
+  afterAll(async () => {
+    db.$pool.end();
   });
 
   it('returns a status code of 201', () => {

@@ -2,7 +2,7 @@ const { saveBookmark, db } = require('../../models');
 
 let response;
 
-describe('add a bookmark', () => {
+xdescribe('add a bookmark', () => {
   beforeAll(async () => {
     await db.any('DELETE FROM bookmark');
     response = await saveBookmark('Title', 'Description', 'URL address')

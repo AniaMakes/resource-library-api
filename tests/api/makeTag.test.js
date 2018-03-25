@@ -6,7 +6,7 @@ let response;
 
 const tag = { tag: 'kitten' };
 
-describe('post a tag', () => {
+xdescribe('post a tag', () => {
   beforeAll(async () => {
     const options = {
       uri: `${url}/tag`,
