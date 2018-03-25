@@ -9,7 +9,7 @@ describe('add a bookmark', () => {
       .then(data => data);
   });
 
-  it('returns an numeric id', () => {
+  it('returns a numeric id', () => {
     expect(typeof response).toEqual('number');
   });
 

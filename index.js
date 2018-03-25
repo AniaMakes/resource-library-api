@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const { selectAllBookmarks, saveBookmark } = require('./models');
+const { selectAllBookmarks, saveBookmark, makeTag } = require('./models');
+
 
 app.use(bodyParser.json());
 
@@ -20,6 +21,15 @@ app.get('/bookmarks', (req, res, next) => {
 app.post('/bookmark', (req, res, next) => {
   const { title, description, url } = req.body;
   saveBookmark(title, description, url).then((data) => {
+    res.status(201).json(data);
+  }).catch((err) => {
+    next(err);
+  });
+});
+
+app.post('/tag', (req, res, next) => {
+  const { tag } = req.body;
+  makeTag(tag).then((data) => {
     res.status(201).json(data);
   }).catch((err) => {
     next(err);

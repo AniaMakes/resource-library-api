@@ -12,4 +12,4 @@ module.exports = {
   db,
 };
 
-Object.assign(module.exports, require('./bookmarks'));
+Object.assign(module.exports, require('./bookmarks'), require('./tags'));
